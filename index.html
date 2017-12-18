@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Ripple Watch</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    </head>
+    <body>
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card" style="width: 20rem; margin: 5% auto">
+                            <img class="card-img-top" src="ripple-white.svg" alt="Card image cap">
+                            <div class="card-body">
+                                <h4 class="card-title">Ripple</h4>
+                                Everything Ripple
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><small>Current price:</small><br> <span id="price"></span> (<span id="24hr"></span>)</li>
+                                <li class="list-group-item"><small>Current rank:</small><br><span id="pos"></span></li>
+                                <li class="list-group-item"><small>Market cap:</small><br> <span id="marketcap"></span></li>
+                             <li class="list-group-item"><small>Tip: <br>rKsjwKThSJtTGEHwgXjXQ4CG5f5Qqa52DQ</small></li>
+                            </ul>
+<!--                             <div class="card-body text-center">
+                                <a href="#" class="card-link btn btn-outline-primary">Buy Ripple</a>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="col-sm-6"></div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script
+          src="https://code.jquery.com/jquery-3.2.1.min.js"
+          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+          crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            $(function() {
+                var ripple_price;
+                $.getJSON('https://api.coinmarketcap.com/v1/ticker/ripple/', function(json){
+                    ripple_price = json;
+                    console.log(ripple_price);
+
+                    $('#price').text('$' + ripple_price[0].price_usd);
+                    $('#pos').text('#' + ripple_price[0].rank);
+                    $('#marketcap').text('$' + ripple_price[0].market_cap_usd);
+                    $('#1hr').text(ripple_price[0].percent_change_1h + '%');
+                    $('#24hr').text(ripple_price[0].percent_change_24h + '%');
+                    $('#7days').text(ripple_price[0].percent_change_7d + '%');
+                });
+            });
+        </script>
+    </body>
+</html>

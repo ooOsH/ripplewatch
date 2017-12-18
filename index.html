@@ -18,7 +18,7 @@
                         <div class="card mx-auto" style="width: 20rem;margin-top: 5%; margin-bottom: 20px;">
                             <img class="card-img-top" src="ripple-white.svg" alt="Card image cap">
                             <div class="card-body">
-                                <h4 class="card-title">Ripple</h4>
+                                <h4 class="card-title">XRP</h4>
                                 Everything Ripple
                             </div>
                             <ul class="list-group list-group-flush">
@@ -42,7 +42,10 @@
                         <li class="list-inline-item"><a href="#" class="btn btn-outline-dark btn-sm">Buy Ripple</a></li>
                     </ul>
                     <small>Tip: rKsjwKThSJtTGEHwgXjXQ4CG5f5Qqa52DQ</small><br>
-                    <small>&copy; RippleWatch 2018 - <a href="#">contact us</a></small>
+                    <small>&copy; RippleWatch
+                        <script type="text/javascript">
+                            document.write(new Date().getFullYear());
+                        </script> - <a href="#">contact us</a></small>
                 </div>
             </nav>
         </main>
@@ -57,18 +60,35 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
         <script type="text/javascript">
             $(function() {
+
+                // Format those large numbers
+                function formatCurrency(total, decimal) {
+                    var neg = false;
+                    if(total < 0) {
+                        neg = true;
+                        total = Math.abs(total);
+                    }
+                    return (neg ? "-$" : '$') + parseFloat(total, 10).toFixed(decimal).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString();
+                }
+
+                // Hook in the coincapmarket api
                 var ripple_price;
+
                 $.getJSON('https://api.coinmarketcap.com/v1/ticker/ripple/', function(json){
                     ripple_price = json;
                     console.log(ripple_price);
 
-                    $('#price').text('$' + ripple_price[0].price_usd);
+                    var price = formatCurrency(ripple_price[0].price_usd, 4);
+                    var marketcap = formatCurrency(ripple_price[0].market_cap_usd, 2);
+
+                    $('#price').text(price);
                     $('#pos').text('#' + ripple_price[0].rank);
-                    $('#marketcap').text('$' + ripple_price[0].market_cap_usd);
+                    $('#marketcap').text(marketcap);
                     $('#1hr').text(ripple_price[0].percent_change_1h + '%');
                     $('#24hr').text(ripple_price[0].percent_change_24h + '%');
                     $('#7days').text(ripple_price[0].percent_change_7d + '%');
                 });
+
             });
         </script>
     </body>

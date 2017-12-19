@@ -1,0 +1,136 @@
+/*
+
+ripplewatch.co.uk main stylesheet
+Version 1.0
+
+*/
+
+/*-------TOP MENU BAR-----------*/
+
+.nav-bar-custom{
+	position: absolute;
+	background: #00A1DF;
+	width: 100%;
+	padding: 0;
+}
+
+.nav-bar-custom .container-fluid{
+	padding: 0;
+}
+
+.nav-bar-custom .navbar-header button{
+	background: transparent;
+	border: none;
+	position: absolute;
+	left: 2%;
+	top: 1.5vw;
+}
+
+.nav-bar-custom .navbar-header button:hover{
+	cursor: pointer;
+}
+
+#navbar{
+	background-color: #00A1DF;
+	z-index: 10;
+}
+
+#navbar li {
+	padding: 1% 1% 1% 5%;
+}
+
+#navbar li>a{
+	color: #fff;
+}
+
+.navbar button:focus{
+	outline: none;
+}
+
+#navbar ul.navbar-nav{
+	padding-top: 3%;
+}
+
+.row-offcanvas {
+position: relative;
+-webkit-transition: all .25s ease-out;
+     -o-transition: all .25s ease-out;
+        transition: all .25s ease-out;
+}
+
+.row-offcanvas-right {
+right: 0;
+}
+
+.row-offcanvas-left {
+left: 0;
+}
+
+.row-offcanvas-right
+.sidebar-offcanvas {
+right: -50%; /* 6 columns */
+}
+
+.row-offcanvas-left
+.sidebar-offcanvas {
+left: -50%; /* 6 columns */
+}
+
+.row-offcanvas-right.active {
+right: 50%; /* 6 columns */
+}
+
+.row-offcanvas-left.active {
+left: 50%; /* 6 columns */
+}
+
+.sidebar-offcanvas {
+position: absolute;
+top: 0;
+width: 50%; /* 6 columns */
+}
+
+.icon-bar {
+    display: block;
+    width: 30px;
+    height: 4px;
+    margin-bottom: 20%;
+    background-color: #fff;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 1px;
+    border-radius: 2px;
+}
+
+.close-menu {
+    position: absolute;
+    opacity: 0.5;
+    z-index: 12;
+    top: 3%;
+    left: 90%;
+    width: 32px;
+    height: 32px; 	
+    transition: ease 0.2s opacity;
+}
+.close-menu:hover {
+  	opacity: 1;
+  	cursor: pointer;
+}
+.close-menu:before, .close-menu:after {
+	  position: absolute;
+	  left: 15px;
+	  content: ' ';
+	  height: 25px;
+	  width: 2px;
+	  background-color: #fff;
+}
+.close-menu:before {
+	  transform: rotate(45deg);
+}
+.close-menu:after {
+ 	 transform: rotate(-45deg);
+}
+
+#navbar .form-inline{
+	padding: 5%;
+}
+/*---------TOP MENU END---------*/

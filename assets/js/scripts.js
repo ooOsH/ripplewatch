@@ -26,12 +26,19 @@ $(function() {
 
             var price = formatCurrency(ripple_price[0].price_usd, 4);
             var marketcap = formatCurrency(ripple_price[0].market_cap_usd, 1);
+            var dailychange = ripple_price[0].percent_change_24h + '%';
+
+            if (dailychange < 0) {
+                $('#24hr').css('color', 'red');
+            } else {
+                $('#24hr').css('color', 'green');
+            }
 
             $('#price').text(price);
             $('#pos').text('#' + ripple_price[0].rank);
             $('#marketcap').text(marketcap);
             $('#1hr').text(ripple_price[0].percent_change_1h + '%');
-            $('#24hr').text(ripple_price[0].percent_change_24h + '%');
+            $('#24hr').text(dailychange);
             $('#7days').text(ripple_price[0].percent_change_7d + '%');
         });
     }

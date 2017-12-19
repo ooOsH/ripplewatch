@@ -11,8 +11,8 @@
                             Everything Ripple
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><small>Current price:</small><br> <span id="price"></span> (<span id="24hr"></span>) <small>24hr</small></li>
-                            <li class="list-group-item"><small>Current rank:</small><br><span id="pos"></span></li>
+                            <li class="list-group-item"><small>Current price:</small><br> <span id="price" class="h5"></span> <span id="24hr"></span> <small>24hr</small></li>
+                            <li class="list-group-item"><small>Current rank:</small><br><span id="pos" class="h5"></span></li>
                             <li class="list-group-item"><small>Market cap:</small><br> <span id="marketcap"></span></li>
                         </ul>
                     </div>
@@ -20,7 +20,16 @@
                 <div class="col-sm-8">
                     <div class="card">
                         <div class="card-body">
-                            This is some text within a card body.
+                            <h3>Ripple News</h3>
+                            <hr>
+                            <p>Coming Soon!</p>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h3>Buy Ripple</h3>
+                            <hr>
+                            <p>Coming Soon!</p>
                         </div>
                     </div>
                 </div>

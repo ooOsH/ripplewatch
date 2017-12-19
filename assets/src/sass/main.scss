@@ -1,5 +1,9 @@
 // main.scss
 
-body {
-    background-color: black;
-}
+// Common
+@import 'common/global';
+
+// Components
+@import 'components/cards';
+
+

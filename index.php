@@ -1,9 +1,9 @@
-<?php include_once 'header.php'; ?>
+<?php include_once 'includes/_header.php'; ?>
     <main>
         <div class="container">
             <div class="row">
-                <div class="col-sm-12">
-                    <div class="card mx-auto" style="width: 20rem;margin-top: 5%; margin-bottom: 20px;">
+                <div class="col-sm-4">
+                    <div class="card">
                         <?php //include 'parts/off-canvas-nav.php'; ?>
                         <img class="card-img-top" src="/assets/images/ripple-white.svg" alt="Card image cap">
                         <div class="card-body">
@@ -16,10 +16,14 @@
                             <li class="list-group-item"><small>Market cap:</small><br> <span id="marketcap"></span></li>
                         </ul>
                     </div>
-
                 </div>
-
-
+                <div class="col-sm-8">
+                    <div class="card">
+                        <div class="card-body">
+                            This is some text within a card body.
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <nav class="navbar navbar-light">
@@ -32,4 +36,4 @@
             </div>
         </nav>
     </main>
-<?php include_once 'footer.php' ?>
+<?php include_once 'includes/_footer.php' ?>

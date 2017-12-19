@@ -1,2 +1,0 @@
-# ripplewatch
-Everything Ripple

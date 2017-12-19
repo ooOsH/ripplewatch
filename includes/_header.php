@@ -10,7 +10,7 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
         <!-- main stylesheet -->
-        <link rel="stylesheet" href="/assets/css/style.css?<?php echo date('l jS \of F Y h:i:s A'); ?>">
+        <link rel="stylesheet" href="/assets/dist/css/main.css?<?php echo date('l jS \of F Y h:i:s A'); ?>">
         <!-- font awesome -->
         <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
     </head>

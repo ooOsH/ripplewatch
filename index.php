@@ -14,7 +14,7 @@
                     </div>
                 </div>
                 <div class="col-sm-8">
-                    <div class="card mt-4">
+                    <div class="card mt-xs-4">
                         <div class="card-body">
                             <h3>Ripple News</h3>
                             <hr>

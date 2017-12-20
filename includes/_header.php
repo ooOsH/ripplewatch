@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
     </head>
     <body>
-        <nav class="navbar navbar-light navbar-expand-lg bg-light">
+        <nav class="navbar navbar-light fixed-top navbar-expand-md">
             <div class="container">
                 <a class="navbar-brand" href="#">Ripple Watch</a>
                 <button class="navbar-toggler" type="button"
@@ -25,19 +25,16 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Coin Charts</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
+                            <a class="nav-link" href="#">Buy Ripple</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
+                            <a class="nav-link" href="#">Contact</a>
                         </li>
                     </ul>
                 </div>

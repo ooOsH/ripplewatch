@@ -1,0 +1,1 @@
+{"version":3,"sources":["common/_global.scss"],"names":[],"mappings":"AAEA,KACI,gBAAiB,CACpB","file":"main.css","sourcesContent":["// global.scss\n\nbody {\n    padding: 70px 0 0;\n}\n"]}

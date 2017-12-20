@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Ripple Watch</title>
+        <title>Ripple Watch - The ultimate source for everything Ripple</title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,15 +17,17 @@
     <body>
         <nav class="navbar navbar-light navbar-expand-md">
             <div class="container">
-                <a class="navbar-brand" href="#">Ripple Watch</a>
+                <a class="navbar-brand" href="#">
+                    <img src="/assets/images/ripplewatch_logo.svg" width="200" alt="Ripple watch - The ultimate source for everything Ripple">
+                </a>
                 <button class="navbar-toggler" type="button"
-                        data-toggle="  collapse"
-                        data-target="#navbarNav"
-                        aria-controls="navbarNav"
+                        data-toggle="collapse"
+                        data-target="#rippleWatchNav"
+                        aria-controls="rippleWatchNav"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <div class="collapse navbar-collapse justify-content-end" id="rippleWatchNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link disabled" href="#">Coin Charts</a>

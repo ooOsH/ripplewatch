@@ -2,6 +2,6 @@
 assets/.DS_Store
 assets/src/.DS_Store
 assets/src/sass/.DS_Store
-assets/src/dist/css/*.map
+*.map
 node_modules
 node_modules/*

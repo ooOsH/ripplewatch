@@ -28,13 +28,13 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Coin Charts</a>
+                            <a class="nav-link disabled" href="#">Coin Charts</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Buy Ripple</a>
+                            <a class="nav-link disabled" href="#">Buy Ripple</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
+                            <a class="nav-link disabled" href="#">Contact</a>
                         </li>
                     </ul>
                 </div>

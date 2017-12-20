@@ -1,1 +1,1 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"main.css","sourcesContent":[]}
+{"version":3,"sources":["components/_nav.scss"],"names":[],"mappings":"AAEA,gBACI,QAAS,CAMZ,AAPD,sBAIQ,YAAa,CAChB","file":"main.css","sourcesContent":["// nav.scss\n\n.navbar-toggler {\n    border: 0;\n\n    &:focus {\n        outline: none;\n    }\n\n}\n"]}

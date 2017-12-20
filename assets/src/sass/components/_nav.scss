@@ -1,0 +1,10 @@
+// nav.scss
+
+.navbar-toggler {
+    border: 0;
+
+    &:focus {
+        outline: none;
+    }
+
+}

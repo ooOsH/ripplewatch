@@ -12,12 +12,12 @@
         <!-- main stylesheet -->
         <link rel="stylesheet" href="/assets/dist/css/main.css?<?php echo date('l jS \of F Y h:i:s A'); ?>">
         <!-- font awesome -->
-        <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+<!--         <link rel="stylesheet" href="/assets/css/font-awesome.min.css"> -->
     </head>
     <body>
         <nav class="navbar navbar-light navbar-expand-md">
             <div class="container">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="/">
                     <img src="/assets/dist/images/ripplewatch_logo.svg" width="200" alt="Ripple watch - The ultimate source for everything Ripple">
                 </a>
                 <button class="navbar-toggler" type="button"

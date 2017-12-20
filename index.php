@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
-                    <div class="card">
+                    <div class="card mb-4">
                         <?php //include 'parts/off-canvas-nav.php'; ?>
                         <img class="card-img-top" src="/assets/images/ripple-white.svg" alt="Card image cap">
                         <ul class="list-group list-group-flush">
@@ -14,7 +14,7 @@
                     </div>
                 </div>
                 <div class="col-sm-8">
-                    <div class="card mt-4 mt-0-md mt-0-lg">
+                    <div class="card">
                         <div class="card-body">
                             <h3>Ripple News</h3>
                             <hr>

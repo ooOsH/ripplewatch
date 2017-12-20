@@ -34,10 +34,7 @@
         <nav class="navbar navbar-light">
             <div class="mx-auto text-center">
                 <small>Tip: rKsjwKThSJtTGEHwgXjXQ4CG5f5Qqa52DQ</small><br>
-                <small>&copy; RippleWatch
-                    <script type="text/javascript">
-                        document.write(new Date().getFullYear());
-                    </script> - <a href="#">contact us</a></small>
+                <small>&copy; RippleWatch <?php echo date('Y'); ?></small>
             </div>
         </nav>
     </main>

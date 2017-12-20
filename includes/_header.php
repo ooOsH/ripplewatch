@@ -18,7 +18,7 @@
         <nav class="navbar navbar-light navbar-expand-md">
             <div class="container">
                 <a class="navbar-brand" href="#">
-                    <img src="/assets/images/ripplewatch_logo.svg" width="200" alt="Ripple watch - The ultimate source for everything Ripple">
+                    <img src="/assets/dist/images/ripplewatch_logo.svg" width="200" alt="Ripple watch - The ultimate source for everything Ripple">
                 </a>
                 <button class="navbar-toggler" type="button"
                         data-toggle="collapse"

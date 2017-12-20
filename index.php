@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="card mb-4">
-                        <img class="card-img-top" src="/assets/images/ripple-white.svg" alt="Card image cap">
+                        <img class="card-img-top" src="/assets/dist/images/ripple-white.svg" alt="Card image cap">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
                                 <small>Current price:</small><br>

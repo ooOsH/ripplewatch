@@ -6,10 +6,6 @@
                     <div class="card">
                         <?php //include 'parts/off-canvas-nav.php'; ?>
                         <img class="card-img-top" src="/assets/images/ripple-white.svg" alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title">XRP</h4>
-                            Everything Ripple
-                        </div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item"><small>Current price:</small><br> <span id="price" class="h5"></span> <span id="24hr"></span> <small>24hr</small></li>
                             <li class="list-group-item"><small>Current rank:</small><br><span id="pos" class="h5"></span></li>
@@ -18,7 +14,7 @@
                     </div>
                 </div>
                 <div class="col-sm-8">
-                    <div class="card">
+                    <div class="card mt-4">
                         <div class="card-body">
                             <h3>Ripple News</h3>
                             <hr>

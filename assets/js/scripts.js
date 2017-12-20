@@ -6,6 +6,9 @@
 
 $(function() {
 
+    // Console Hello
+    console.log('Welcome to RippleWatch');
+
     // Format those large numbers
     function formatCurrency(total, decimal) {
         var neg = false;

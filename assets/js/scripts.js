@@ -25,10 +25,10 @@ $(function() {
             console.log(ripple_price);
 
             var price = formatCurrency(ripple_price[0].price_usd, 4);
-            var marketcap = formatCurrency(ripple_price[0].market_cap_usd, 1);
+            var marketcap  = formatCurrency(ripple_price[0].market_cap_usd, 1);
             var dailychange = ripple_price[0].percent_change_24h + '%';
 
-            if (dailychange < 0) {
+            if (parseInt(dailychange) < 0) {
                 $('#24hr').css('color', 'red');
             } else {
                 $('#24hr').css('color', 'green');

@@ -40,11 +40,5 @@
                 </div>
             </div>
         </div>
-        <nav class="navbar navbar-light">
-            <div class="mx-auto text-center">
-                <small>Tip: rKsjwKThSJtTGEHwgXjXQ4CG5f5Qqa52DQ</small><br>
-                <small>&copy; RippleWatch <?php echo date('Y'); ?></small>
-            </div>
-        </nav>
     </main>
 <?php include_once 'includes/_footer.php' ?>

@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
     </head>
     <body>
-        <nav class="navbar navbar-light fixed-top navbar-expand-md">
+        <nav class="navbar navbar-light navbar-expand-md">
             <div class="container">
                 <a class="navbar-brand" href="#">Ripple Watch</a>
                 <button class="navbar-toggler" type="button"

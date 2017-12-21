@@ -28,31 +28,7 @@
                             <h3>Buy Ripple</h3>
                             <hr>
                             <p>We are currently offering Ripple through UK bank transer and most crytos - please get in touch with your order and we will aim to get back to you by the next working day.</p>
-                            <form action="">
-                                <div class="form-group">
-                                    <label for="">Name</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Email</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Payment</label>
-                                    <select class="form-control" id="">
-                                        <option value="">Please choose...</option>
-                                        <option>UK Bank Transfer</option>
-                                        <option>BTC</option>
-                                        <option>ETH</option>
-                                        <option>BCH</option>
-                                        <option>Other (Please specify in message)</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Message</label>
-                                    <textarea class="form-control" id="" rows="4"></textarea>
-                                </div>
-                            </form>
+                            <p class="text-center"><a href="mailto:ripplewatch.co.uk">Email us to find out more</a></p>
                         </div>
                     </div>
                 </div>

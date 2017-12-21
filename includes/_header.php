@@ -33,7 +33,7 @@
                             <a class="nav-link disabled" href="#">Coin Charts</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Buy Ripple</a>
+                            <a class="nav-link" href="/buy-ripple-uk.php">Buy Ripple</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" href="#">Contact</a>

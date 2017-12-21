@@ -25,14 +25,15 @@
                 <div class="col-sm-8">
                     <div class="card">
                         <div class="card-body">
-                            <h3>Ripple News</h3>
+                            <h3>Buy Ripple</h3>
                             <hr>
-                            <p>Coming Soon!</p>
+                            <p>We are currently offering Ripple through UK bank transer and most crytos - please get in touch with your order and we will aim to get back to you by the next working day.</p>
+                            <p class="text-center"><a href="mailto:ripplewatch.co.uk">Email us to find out more</a></p>
                         </div>
                     </div>
                     <div class="card mt-4">
                         <div class="card-body">
-                            <h3>Buy Ripple</h3>
+                            <h3>Ripple News</h3>
                             <hr>
                             <p>Coming Soon!</p>
                         </div>

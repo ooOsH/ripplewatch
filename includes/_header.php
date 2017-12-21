@@ -5,7 +5,7 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="We are a UK based ripple, xrp news and price feed...">
+        <meta name="description" content="The ultimate source for everything Ripple, Ripple Price, Ripple News, Buy Ripple UK">
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
@@ -33,7 +33,7 @@
                             <a class="nav-link disabled" href="#">Coin Charts</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/buy-ripple-uk.php">Buy Ripple</a>
+                            <a class="nav-link" href="/buy-ripple-uk">Buy Ripple</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" href="#">Contact</a>

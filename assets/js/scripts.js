@@ -6,7 +6,7 @@
 
 $(function() {
 
-    // Console Hello
+    // Console Hello Peeps
     console.log('Welcome to RippleWatch');
 
     // Format those large numbers
@@ -28,7 +28,7 @@ $(function() {
             console.log(ripple_price);
 
             var price = formatCurrency(ripple_price[0].price_usd, 4);
-            var marketcap  = formatCurrency(ripple_price[0].market_cap_usd, 1);
+            var marketcap  = formatCurrency(ripple_price[0].market_cap_usd, 0);
             var dailychange = ripple_price[0].percent_change_24h + '%';
 
             if (parseInt(dailychange) < 0) {

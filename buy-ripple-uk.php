@@ -28,7 +28,7 @@
                             <h3>Buy Ripple</h3>
                             <hr>
                             <p>We are currently offering Ripple through UK bank transer and most crytos - please get in touch with your order and we will aim to get back to you by the next working day.</p>
-                            <p class="text-center"><a href="mailto:ripplewatch.co.uk">Email us to find out more</a></p>
+                            <a href="mailto:ripplewatch.co.uk" class="btn btn-outline-primary">Email us to find out more</a>
                         </div>
                     </div>
                     <div class="card mt-4">

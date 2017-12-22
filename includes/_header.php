@@ -6,13 +6,14 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="The ultimate source for everything Ripple, Ripple Price, Ripple News, Buy Ripple UK">
+        <meta name="google-site-verification" content="-c7BvDKUfNhvzikGrQU0ZYNZKO7ZICf1KxhCU2Aj1BM" />
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
         <!-- main stylesheet -->
         <link rel="stylesheet" href="/assets/dist/css/main.css?<?php echo date('l jS \of F Y h:i:s A'); ?>">
         <!-- font awesome -->
-<!--         <link rel="stylesheet" href="/assets/css/font-awesome.min.css"> -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <nav class="navbar navbar-light navbar-expand-md">

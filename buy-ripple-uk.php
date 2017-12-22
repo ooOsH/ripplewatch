@@ -30,6 +30,9 @@
                             <p>We are currently offering Ripple through UK bank transer and most crytos - please get in touch with your order and we will aim to get back to you by the next working day.</p>
                             <p class="text-center"><a href="mailto:ripplewatch.co.uk">Email us to find out more</a></p>
                         </div>
+                        <div class="card mt-4">
+                            <a href="https://changelly.com/?ref_id=86b230371301" target="_blank" class="btn btn-primary">Buy BTC & Other Alt Coins</a>
+                        </div>
                     </div>
                 </div>
             </div>

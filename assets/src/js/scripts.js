@@ -50,6 +50,7 @@ $(function() {
     var ctx = $('#rippleChart');
     var myChart = new Chart(ctx, {
         type: 'line',
+        responsive: true,
         data: {
             labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
             datasets: [{
@@ -78,7 +79,7 @@ $(function() {
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero:true
+                        beginAtZero: true
                     }
                 }]
             }

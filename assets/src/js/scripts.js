@@ -58,7 +58,7 @@ $(function() {
     var all_coin_data;
     var last_hour;
     var graph_data = "";
-    var labels_data = ""; 
+    var labels_data = []; 
 
     function generateGraphData() {
         // 1440 request for a 24 hour graph with 1 min intervals
@@ -97,7 +97,7 @@ $(function() {
                         var formated_time = hrs + ":" + mins;
 
                         graph_data = graph_data + '{x: "' + formated_time + '",y: ' + price + '},';
-                        labels_data = labels_data + '"' + formated_time + '",';
+                        labels_data.push(formated_time);
 
                     });
                 } else {
@@ -107,7 +107,7 @@ $(function() {
             });
 
             graph_data = graph_data.substring(0,graph_data.length - 1);
-            labels_data = labels_data.substring(0,labels_data.length - 1);
+            // labels_data = labels_data.substring(0,labels_data.length - 1);
 
             console.log("graph data - " + graph_data);
             console.log("labels data - " + labels_data);
@@ -118,7 +118,7 @@ $(function() {
                 type: 'line',
                 responsive: true,
                 data: {
-                    labels: [labels_data],
+                    labels: labels_data,
                     datasets: [{
                         label: 'Price of XRP',
                         // x time / y price

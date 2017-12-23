@@ -30,15 +30,15 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="rippleWatchNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
+<!--                         <li class="nav-item">
                             <a class="nav-link disabled" href="#">Coin Charts</a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link" href="/buy-ripple-uk.php">Buy Ripple</a>
                         </li>
-                        <li class="nav-item">
+<!--                         <li class="nav-item">
                             <a class="nav-link disabled" href="#">Contact</a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>

@@ -25,24 +25,7 @@
                 <div class="col-sm-8">
                     <div class="card">
                         <div class="card-body">
-                            <h3>Buy Ripple</h3>
-                            <hr>
-                            <p>We are currently offering Ripple through UK bank transer and most crytos - please get in touch with your order and we will aim to get back to you by the next working day.</p>
-                            <a href="mailto:ripplewatch.co.uk" class="btn btn-outline-primary">Email us to find out more</a>
-                        </div>
-                    </div>
-                    <div class="card mt-4">
-                        <div class="card-body">
-                            <h3>Buy BTC &amp; Alt Coins</h3>
-                            <p>If you'd like to purchase coins to trade with us we recommend using Changelly</p>
-                            <a href="https://changelly.com/?ref_id=86b230371301" target="_blank" class="btn btn-outline-primary"><i class="fa fa-btc" aria-hidden="true"></i> Buy BTC &amp; Alt Coins</a>
-                        </div>
-                    </div>
-                    <div class="card mt-4">
-                        <div class="card-body">
-                            <h3>Ripple News</h3>
-                            <hr>
-                            <p>Coming Soon!</p>
+                            <a class="twitter-timeline" data-height="550" href="https://twitter.com/Ripple?ref_src=twsrc%5Etfw">Tweets by Ripple</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                         </div>
                     </div>
                 </div>

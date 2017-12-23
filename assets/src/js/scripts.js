@@ -57,28 +57,25 @@ $(function() {
     // get all data for graph
     var all_coin_data;
     var last_hour;
-    var graph_data = "";
+    var graph_data = [];
     var labels_data = []; 
 
     function generateGraphData() {
         // 1440 request for a 24 hour graph with 1 min intervals
-        $.getJSON('https://min-api.cryptocompare.com/data/histominute?fsym=XRP&tsym=USD&limit=20&aggregate=3&e=CCCAGG', function(json){
+        $.getJSON('https://min-api.cryptocompare.com/data/histominute?fsym=XRP&tsym=USD&limit=60&aggregate=1&e=CCCAGG', function(json){
             all_coin_data = json;
             var unix_time;
             var price_min;
 
             $.each( all_coin_data, function(k,v) {
-                // console.log("key = " + k);
-                // console.log("value = " + v);
 
                 if (k == "Data") {
                     last_hour = v;
-                    //console.log(last_hour); 
+
                     $.each(last_hour, function(index) {
                         unix_time = last_hour[index].time;
                         price = last_hour[index].close;
-                        // console.log("unix time = " + unix_time);
-                        // console.log("price min = " + price);
+
                         var timestampInMilliSeconds = unix_time*1000;
                         var formated_time_date = new Date(timestampInMilliSeconds);
                         var hrs = formated_time_date.getHours();
@@ -94,10 +91,12 @@ $(function() {
                         } else {
 
                         }
+
                         var formated_time = hrs + ':' + mins;
                         labels_data.push(formated_time);
-                        // graph_data = graph_data + '{x: "' + formated_time + '",y: ' + price + '},';
-                        // labels_data = labels_data + '"' + formated_time + '",';
+
+                        plot = {x: formated_time, y: price};
+                        graph_data.push(plot);
 
                     });
                 } else {
@@ -105,12 +104,6 @@ $(function() {
                 }
 
             });
-
-            // graph_data = graph_data.substring(0,graph_data.length - 1);
-            // labels_data = labels_data.substring(0,labels_data.length - 1);
-
-            // console.log("graph data - " + graph_data);
-            // console.log("labels data - " + labels_data);
 
             // Add data to graph
             var ctx = $('#rippleChart');
@@ -122,7 +115,7 @@ $(function() {
                     datasets: [{
                         label: 'Price of XRP',
                         // x time / y price
-                        data: [graph_data],
+                        data: graph_data,
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',

@@ -94,10 +94,10 @@ $(function() {
                         } else {
 
                         }
-                        var formated_time = hrs + ":" + mins;
-
-                        graph_data = graph_data + '{x: "' + formated_time + '",y: ' + price + '},';
+                        var formated_time = hrs + ':' + mins;
                         labels_data.push(formated_time);
+                        // graph_data = graph_data + '{x: "' + formated_time + '",y: ' + price + '},';
+                        // labels_data = labels_data + '"' + formated_time + '",';
 
                     });
                 } else {
@@ -106,11 +106,11 @@ $(function() {
 
             });
 
-            graph_data = graph_data.substring(0,graph_data.length - 1);
+            // graph_data = graph_data.substring(0,graph_data.length - 1);
             // labels_data = labels_data.substring(0,labels_data.length - 1);
 
-            console.log("graph data - " + graph_data);
-            console.log("labels data - " + labels_data);
+            // console.log("graph data - " + graph_data);
+            // console.log("labels data - " + labels_data);
 
             // Add data to graph
             var ctx = $('#rippleChart');

@@ -55,7 +55,14 @@ $(function() {
             labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
             datasets: [{
                 label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                // x time / y price
+                data: [{
+                        x: 10,
+                        y: 20
+                    }, {
+                        x: 15,
+                        y: 10
+                    }],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -92,5 +99,28 @@ $(function() {
         getData();
     }, 15000);
 
+
+    // get all coin data
+        var all_coin_data;
+
+        function generateCoinData() {
+            $.getJSON('https://min-api.cryptocompare.com/data/histominute?fsym=XRP&tsym=USD&limit=60&aggregate=3&e=CCCAGG', function(json){
+                all_coin_data = json;
+                var last_hour = all_coin_data;
+                 $.each(last_hour, function(all_coin_data) {
+                    console.log(last_hour[all_coin_data]);
+                    var unix_time_stamp = last_hour.time;
+                    console.log("unix timestamp = " + unix_time_stamp);
+                });
+
+
+                // var last_hour = all_coin_data.data;
+                // console.log(last_hour);
+            });
+        }
+
+
+        // Initial Load
+        generateCoinData();
 
 });

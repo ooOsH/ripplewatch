@@ -38,6 +38,7 @@
                             <a href="https://changelly.com/?ref_id=86b230371301" target="_blank" class="btn btn-outline-primary"><i class="fa fa-btc" aria-hidden="true"></i> Buy BTC &amp; Alt Coins</a>
                         </div>
                     </div>
+                    <a href="/" class="mt-4 btn btn-outline-secondary"><i class="fa fa-angle-left" aria-hidden="true"></i> Back</a>
                 </div>
             </div>
         </div>

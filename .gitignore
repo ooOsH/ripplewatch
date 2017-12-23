@@ -2,6 +2,7 @@
 assets/.DS_Store
 assets/src/.DS_Store
 assets/src/sass/.DS_Store
+assets/dist/*
 *.map
 node_modules
 node_modules/*

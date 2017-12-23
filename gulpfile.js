@@ -24,8 +24,10 @@ gulp.task('sass', function () {
 
 gulp.task('scripts', function() {
   gulp.src('assets/src/js/*.js')
+    .pipe(sourcemaps.init())
     .pipe(uglify())
     .pipe(concat('scripts.js'))
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('assets/dist/js'))
 });
 

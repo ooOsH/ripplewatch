@@ -54,14 +54,17 @@ $(function() {
         data: {
             labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
             datasets: [{
-                label: '# of Votes',
+                label: 'Price of XRP',
                 // x time / y price
                 data: [{
-                        x: 10,
-                        y: 20
+                        x: "13:56",
+                        y: "0.41"
                     }, {
-                        x: 15,
-                        y: 10
+                        x: "13:57",
+                        y: "0.45"
+                    }, {
+                        x: "13:58",
+                        y: "0.44"
                     }],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
@@ -100,27 +103,48 @@ $(function() {
     }, 15000);
 
 
-    // get all coin data
+    // get all data for graph
         var all_coin_data;
+        var last_hour;
+        var graph_data = [];
 
         function generateCoinData() {
+            // 1440 request for a 24 hour graph with 1 min intervals
             $.getJSON('https://min-api.cryptocompare.com/data/histominute?fsym=XRP&tsym=USD&limit=60&aggregate=3&e=CCCAGG', function(json){
                 all_coin_data = json;
-                var last_hour = all_coin_data;
-                 $.each(last_hour, function(all_coin_data) {
-                    console.log(last_hour[all_coin_data]);
-                    var unix_time_stamp = last_hour.time;
-                    console.log("unix timestamp = " + unix_time_stamp);
+                var unix_time;
+                var price_min;
+
+                $.each( all_coin_data, function(k,v) {
+                    // console.log("key = " + k);
+                    // console.log("value = " + v);
+
+                    if (k == "Data") {
+                        last_hour = v;
+                        console.log(last_hour); 
+                        $.each(last_hour, function(index) {
+                            unix_time = last_hour[index].time;
+                            price = last_hour[index].close;
+                            // console.log("unix time = " + unix_time);
+                            // console.log("price min = " + price);
+                            var timestampInMilliSeconds = unix_time*1000;
+                            var formated_time = new Date(timestampInMilliSeconds);
+                            console.log(formated_time);
+                        });
+                    } else {
+
+                    }
+
                 });
-
-
-                // var last_hour = all_coin_data.data;
-                // console.log(last_hour);
+                console.log("graph data = " + graph_data[0]);
             });
-        }
 
+           return last_hour;
+        }
 
         // Initial Load
         generateCoinData();
+
+
 
 });

@@ -52,6 +52,7 @@ $(function() {
 ;    }, 15000);
 
 
+
     // get all data for graph
     var all_coin_data;
     var last_hour;
@@ -95,7 +96,7 @@ $(function() {
 
     function generateGraphDataDay() {
         // 1440 request for a 24 hour graph with 1 min intervals
-        $.getJSON('https://min-api.cryptocompare.com/data/histominute?fsym=XRP&tsym=USD&limit=1440&aggregate=1&e=CCCAGG', function(json){
+        $.getJSON('https://min-api.cryptocompare.com/data/histominute?fsym=XRP&tsym=USD&limit=287&aggregate=5&e=CCCAGG', function(json){
             all_coin_data = json;
             var unix_time;
             var price_min;
@@ -195,9 +196,37 @@ $(function() {
     }
 
 
-    generateGraphDataHour();
-    //generateGraphDataDay();
+   // generateGraphDataHour();
+    generateGraphDataDay();
 
+    // crypto 
+    var currency_data;
 
+    function getCurrencyData() {
+
+        fetch('https://min-api.cryptocompare.com/data/generateAvg?fsym=BTC&tsym=USD&markets=Coinbase,Bitfinex')
+          .then(
+            function(response) {
+              if (response.status !== 200) {
+                console.log('Looks like there was a problem. Status Code: ' +
+                  response.status);
+                return;
+              }
+
+              // Examine the text in the response
+              response.json().then(function(data) {
+                console.log(data);
+                var current_price = data.USD;
+                console.log(current_price);
+              });
+            }
+          )
+          .catch(function(err) {
+            console.log('Fetch Error :-S', err);
+          });
+
+    }
+
+    getCurrencyData(); 
 
 });

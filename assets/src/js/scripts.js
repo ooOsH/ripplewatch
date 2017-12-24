@@ -52,8 +52,6 @@ $(function() {
     }, 15000);
 
 
-
-
     // get all data for graph
     var all_coin_data;
     var last_hour;
@@ -76,29 +74,13 @@ $(function() {
                         unix_time = last_hour[index].time;
                         price = last_hour[index].close;
 
-                        var timestampInMilliSeconds = unix_time*1000;
-                        var formated_time_date = new Date(timestampInMilliSeconds);
-                        var hrs = formated_time_date.getHours();
-                        var mins = formated_time_date.getMinutes();
-                        if (mins < 10) {
-                            mins = "0" + mins;
-                        } else {
-
-                        }
-                        var seconds = formated_time_date.getSeconds();
-                         if (seconds < 10) {
-                            seconds = "0" + seconds;
-                        } else {
-
-                        }
-
-                        var formated_time = hrs + ':' + mins;
+                        var formated_time = formatUnixTime(unix_time);
                         labels_data.push(formated_time);
 
                         plot = {x: formated_time, y: price};
                         graph_data.push(plot);
 
-                       
+
                     });
                 } else {
 
@@ -111,8 +93,8 @@ $(function() {
         });
     }
 
-    function outputGraph(){
-        // Add data to graph
+    //ouput grap
+    function outputGraph(labels_data, graph_data){
         var ctx = $('#rippleChart');
         var myChart = new Chart(ctx, {
             type: 'line',
@@ -152,6 +134,29 @@ $(function() {
                 }
             }
         });
+    }
+
+    // format time
+    function formatUnixTime(unixTimeStamp) {
+        var timestampInMilliSeconds = unixTimeStamp*1000;
+        var formated_time_date = new Date(timestampInMilliSeconds);
+        var hrs = formated_time_date.getHours();
+        var mins = formated_time_date.getMinutes();
+        if (mins < 10) {
+            mins = "0" + mins;
+        } else {
+
+        }
+        var seconds = formated_time_date.getSeconds();
+         if (seconds < 10) {
+            seconds = "0" + seconds;
+        } else {
+
+        }
+
+        var return_time = hrs + ':' + mins;
+
+        return return_time;
     }
 
     // Initial Load

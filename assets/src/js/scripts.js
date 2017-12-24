@@ -57,7 +57,7 @@ $(function() {
     var all_coin_data;
     var last_hour;
     var graph_data = [];
-    var labels_data = []; 
+    var labels_data = [];
 
     function generateGraphDataHour() {
         // 1440 request for a 24 hour graph with 1 min intervals
@@ -90,7 +90,7 @@ $(function() {
             });
 
              outputGraph(labels_data, graph_data);
-            
+
         });
     }
 
@@ -125,7 +125,7 @@ $(function() {
             });
 
              outputGraph(labels_data, graph_data);
-            
+
         });
     }
 
@@ -164,10 +164,16 @@ $(function() {
                 scales: {
                     yAxes: [{
                         ticks: {
-                            beginAtZero: true
+                            beginAtZero: false
                         }
+                    }],
+                    xAxes: [{
+                        display: false
                     }]
-                }
+                },
+                legend: {
+                    display: false
+                },
             }
         });
     }
@@ -196,6 +202,7 @@ $(function() {
     }
 
 
+<<<<<<< HEAD
    // generateGraphDataHour();
     generateGraphDataDay();
 
@@ -212,6 +219,10 @@ $(function() {
                   response.status);
                 return;
               }
+=======
+    // generateGraphDataHour();
+    generateGraphDataDay();
+>>>>>>> 2086fc4ffa87c0cbba977f03ffb79d92d6ca67e1
 
               // Examine the text in the response
               response.json().then(function(data) {

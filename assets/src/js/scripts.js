@@ -60,7 +60,7 @@ $(function() {
     var graph_data = [];
     var labels_data = []; 
 
-    function generateGraphData() {
+    function generateGraphDataHour() {
         // 1440 request for a 24 hour graph with 1 min intervals
         $.getJSON('https://min-api.cryptocompare.com/data/histominute?fsym=XRP&tsym=USD&limit=60&aggregate=1&e=CCCAGG', function(json){
             all_coin_data = json;
@@ -98,6 +98,7 @@ $(function() {
                         plot = {x: formated_time, y: price};
                         graph_data.push(plot);
 
+                       
                     });
                 } else {
 
@@ -105,52 +106,56 @@ $(function() {
 
             });
 
-            // Add data to graph
-            var ctx = $('#rippleChart');
-            var myChart = new Chart(ctx, {
-                type: 'line',
-                responsive: true,
-                data: {
-                    labels: labels_data,
-                    datasets: [{
-                        label: 'Price of XRP',
-                        // x time / y price
-                        data: graph_data,
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255,99,132,1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    }
-                }
-            });
+             outputGraph(labels_data, graph_data);
             
         });
     }
 
+    function outputGraph(){
+        // Add data to graph
+        var ctx = $('#rippleChart');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            responsive: true,
+            data: {
+                labels: labels_data,
+                datasets: [{
+                    label: 'Price of XRP',
+                    // x time / y price
+                    data: graph_data,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
     // Initial Load
-    generateGraphData();
+    generateGraphDataHour();
 
 
 

@@ -48,8 +48,8 @@ $(function() {
 
     // Refresh Price every 15 sec
     setInterval(function() {
-        getData();
-    }, 15000);
+        getData()
+;    }, 15000);
 
 
     // get all data for graph
@@ -61,6 +61,41 @@ $(function() {
     function generateGraphDataHour() {
         // 1440 request for a 24 hour graph with 1 min intervals
         $.getJSON('https://min-api.cryptocompare.com/data/histominute?fsym=XRP&tsym=USD&limit=60&aggregate=1&e=CCCAGG', function(json){
+            all_coin_data = json;
+            var unix_time;
+            var price_min;
+
+            $.each( all_coin_data, function(k,v) {
+
+                if (k == "Data") {
+                    last_hour = v;
+
+                    $.each(last_hour, function(index) {
+                        unix_time = last_hour[index].time;
+                        price = last_hour[index].close;
+
+                        var formated_time = formatUnixTime(unix_time);
+                        labels_data.push(formated_time);
+
+                        plot = {x: formated_time, y: price};
+                        graph_data.push(plot);
+
+
+                    });
+                } else {
+
+                }
+
+            });
+
+             outputGraph(labels_data, graph_data);
+            
+        });
+    }
+
+    function generateGraphDataDay() {
+        // 1440 request for a 24 hour graph with 1 min intervals
+        $.getJSON('https://min-api.cryptocompare.com/data/histominute?fsym=XRP&tsym=USD&limit=1440&aggregate=1&e=CCCAGG', function(json){
             all_coin_data = json;
             var unix_time;
             var price_min;
@@ -159,9 +194,9 @@ $(function() {
         return return_time;
     }
 
-    // Initial Load
-    generateGraphDataHour();
 
+    generateGraphDataHour();
+    //generateGraphDataDay();
 
 
 

@@ -25,7 +25,7 @@
                 <div class="col-sm-8">
                     <div class="card">
                         <div class="card-body">
-                            <h3>Last 24hr</h3>
+                            <h3>Price last 24hr</h3>
                             <hr>
                             <canvas id="rippleChart"></canvas>
                        </div>

@@ -57,7 +57,7 @@ $(function() {
     var all_coin_data;
     var last_hour;
     var graph_data = [];
-    var labels_data = []; 
+    var labels_data = [];
 
     function generateGraphDataHour() {
         // 1440 request for a 24 hour graph with 1 min intervals
@@ -90,7 +90,7 @@ $(function() {
             });
 
              outputGraph(labels_data, graph_data);
-            
+
         });
     }
 
@@ -125,7 +125,7 @@ $(function() {
             });
 
              outputGraph(labels_data, graph_data);
-            
+
         });
     }
 
@@ -142,20 +142,10 @@ $(function() {
                     // x time / y price
                     data: graph_data,
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
+                        'rgba(45, 159, 227, 0.2)',
                     ],
                     borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
+                        '#2d9fe3',
                     ],
                     borderWidth: 1
                 }]
@@ -164,10 +154,19 @@ $(function() {
                 scales: {
                     yAxes: [{
                         ticks: {
-                            beginAtZero: true
+                            beginAtZero: false
                         }
+                    }],
+                    xAxes: [{
+                        display: false
                     }]
-                }
+                },
+                legend: {
+                    display: false
+                },
+                tooltips: {
+                    enabled: false
+                },
             }
         });
     }
@@ -199,7 +198,7 @@ $(function() {
    // generateGraphDataHour();
     generateGraphDataDay();
 
-    // crypto 
+    // crypto
     var currency_data;
 
     function getCurrencyData() {
@@ -227,6 +226,6 @@ $(function() {
 
     }
 
-    getCurrencyData(); 
+    getCurrencyData();
 
 });

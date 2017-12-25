@@ -49,7 +49,184 @@ $(function() {
     // Refresh Price every 15 sec
     setInterval(function() {
         getData();
-    }, 120000);
+    }, 120000)
 
+
+
+    // get all data for graph
+    var all_coin_data;
+    var last_hour;
+    var graph_data = [];
+    var labels_data = []; 
+
+    function generateGraphDataHour() {
+        // 1440 request for a 24 hour graph with 1 min intervals
+        $.getJSON('https://min-api.cryptocompare.com/data/histominute?fsym=XRP&tsym=USD&limit=60&aggregate=1&e=CCCAGG', function(json){
+            all_coin_data = json;
+            var unix_time;
+            var price_min;
+
+            $.each( all_coin_data, function(k,v) {
+
+                if (k == "Data") {
+                    last_hour = v;
+
+                    $.each(last_hour, function(index) {
+                        unix_time = last_hour[index].time;
+                        price = last_hour[index].close;
+
+                        var formated_time = formatUnixTime(unix_time);
+                        labels_data.push(formated_time);
+
+                        plot = {x: formated_time, y: price};
+                        graph_data.push(plot);
+
+
+                    });
+                } else {
+
+                }
+
+            });
+
+             outputGraph(labels_data, graph_data);
+            
+        });
+    }
+
+    function generateGraphDataDay() {
+        // 1440 request for a 24 hour graph with 1 min intervals
+        $.getJSON('https://min-api.cryptocompare.com/data/histominute?fsym=XRP&tsym=USD&limit=71&aggregate=20&e=CCCAGG', function(json){
+            all_coin_data = json;
+            var unix_time;
+            var price_min;
+
+            $.each( all_coin_data, function(k,v) {
+
+                if (k == "Data") {
+                    last_hour = v;
+
+                    $.each(last_hour, function(index) {
+                        unix_time = last_hour[index].time;
+                        price = last_hour[index].close;
+
+                        var formated_time = formatUnixTime(unix_time);
+                        labels_data.push(formated_time);
+
+                        plot = {x: formated_time, y: price};
+                        graph_data.push(plot);
+
+
+                    });
+                } else {
+
+                }
+
+            });
+
+             outputGraph(labels_data, graph_data);
+            
+        });
+    }
+
+    //ouput grap
+    function outputGraph(labels_data, graph_data){
+        var ctx = $('#rippleChart');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            responsive: true,
+            data: {
+                labels: labels_data,
+                datasets: [{
+                    label: 'Price of XRP',
+                    // x time / y price
+                    data: graph_data,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    // format time
+    function formatUnixTime(unixTimeStamp) {
+        var timestampInMilliSeconds = unixTimeStamp*1000;
+        var formated_time_date = new Date(timestampInMilliSeconds);
+        var hrs = formated_time_date.getHours();
+        var mins = formated_time_date.getMinutes();
+        if (mins < 10) {
+            mins = "0" + mins;
+        } else {
+
+        }
+        var seconds = formated_time_date.getSeconds();
+         if (seconds < 10) {
+            seconds = "0" + seconds;
+        } else {
+
+        }
+
+        var return_time = hrs + ':' + mins;
+
+        return return_time;
+    }
+
+
+   // generateGraphDataHour();
+    generateGraphDataDay();
+
+    // crypto 
+    var currency_data;
+
+    function getCurrencyData() {
+
+        fetch('https://min-api.cryptocompare.com/data/generateAvg?fsym=BTC&tsym=USD&markets=Coinbase,Bitfinex')
+          .then(
+            function(response) {
+              if (response.status !== 200) {
+                console.log('Looks like there was a problem. Status Code: ' +
+                  response.status);
+                return;
+              }
+
+              // Examine the text in the response
+              response.json().then(function(data) {
+                console.log(data);
+                var current_price = data.USD;
+                console.log(current_price);
+              });
+            }
+          )
+          .catch(function(err) {
+            console.log('Fetch Error :-S', err);
+          });
+
+    }
+
+    getCurrencyData(); 
 
 });

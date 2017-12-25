@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ooOsH/ripplewatch#readme",
   "devDependencies": {
+    "chart.js": "^2.7.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-concat": "^2.6.1",
@@ -25,5 +26,8 @@
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.1",
     "gulp-uglify": "^3.0.0"
+  },
+  "dependencies": {
+    "cryptocompare": "^0.3.0"
   }
 }

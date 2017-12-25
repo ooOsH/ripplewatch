@@ -20,6 +20,9 @@
                                 <span id="marketcap" class="h5"></span>
                             </li>
                         </ul>
+                        <div class="card-body">
+                            <canvas id="rippleChart"></canvas>
+                        </div>
                     </div>
                 </div>
                 <div class="col-sm-8">

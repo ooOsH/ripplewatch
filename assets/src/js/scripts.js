@@ -134,12 +134,10 @@ $(function() {
         var ctx = $('#rippleChart');
         var myChart = new Chart(ctx, {
             type: 'line',
-            responsive: true,
             data: {
                 labels: labels_data,
                 datasets: [{
-                    label: 'Price of XRP',
-                    // x time / y price
+                    label: 'XRP',
                     data: graph_data,
                     backgroundColor: [
                         'rgba(45, 159, 227, 0.2)',
@@ -151,10 +149,14 @@ $(function() {
                 }]
             },
             options: {
+                responsive: true,
                 scales: {
                     yAxes: [{
                         ticks: {
                             beginAtZero: false
+                        },
+                        gridLines: {
+                            display: false
                         }
                     }],
                     xAxes: [{
@@ -165,8 +167,13 @@ $(function() {
                     display: false
                 },
                 tooltips: {
-                    enabled: false
+                    // enabled: false
                 },
+                elements: {
+                    point: {
+                        // radius: 0
+                    }
+                }
             }
         });
     }

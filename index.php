@@ -30,8 +30,8 @@
                             <canvas id="rippleChart"></canvas>
                        </div>
                     </div>
-                    <div class="card">
-                        <div class="card-body">                      
+                    <div class="card mt-4">
+                        <div class="card-body">
                             <a class="twitter-timeline" data-height="550" href="https://twitter.com/Ripple?ref_src=twsrc%5Etfw">Tweets by Ripple</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                         </div>
                     </div>

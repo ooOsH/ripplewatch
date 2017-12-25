@@ -28,6 +28,11 @@
                             <h3>Last 24hr</h3>
                             <hr>
                             <canvas id="rippleChart"></canvas>
+                       </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">                      
+                            <a class="twitter-timeline" data-height="550" href="https://twitter.com/Ripple?ref_src=twsrc%5Etfw">Tweets by Ripple</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                         </div>
                     </div>
                 </div>

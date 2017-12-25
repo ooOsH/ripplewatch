@@ -48,8 +48,8 @@ $(function() {
 
     // Refresh Price every 15 sec
     setInterval(function() {
-        getData()
-;    }, 15000);
+        getData();
+    }, 120000)
 
 
 

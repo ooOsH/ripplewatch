@@ -137,8 +137,7 @@ $(function() {
             data: {
                 labels: labels_data,
                 datasets: [{
-                    label: 'Price of XRP',
-                    // x time / y price
+                    label: 'XRP',
                     data: graph_data,
                     backgroundColor: [
                         'rgba(45, 159, 227, 0.2)',
@@ -155,6 +154,9 @@ $(function() {
                     yAxes: [{
                         ticks: {
                             beginAtZero: false
+                        },
+                        gridLines: {
+                            display: false
                         }
                     }],
                     xAxes: [{
@@ -165,8 +167,13 @@ $(function() {
                     display: false
                 },
                 tooltips: {
-                    enabled: false
+                    // enabled: false
                 },
+                elements: {
+                    point: {
+                        // radius: 0
+                    }
+                }
             }
         });
     }

@@ -134,7 +134,6 @@ $(function() {
         var ctx = $('#rippleChart');
         var myChart = new Chart(ctx, {
             type: 'line',
-            responsive: true,
             data: {
                 labels: labels_data,
                 datasets: [{
@@ -151,6 +150,7 @@ $(function() {
                 }]
             },
             options: {
+                responsive: true,
                 scales: {
                     yAxes: [{
                         ticks: {

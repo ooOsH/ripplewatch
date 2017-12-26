@@ -165,7 +165,7 @@ $(function() {
                     display: false
                 },
                 tooltips: {
-                    enabled: false
+                    enabled: true
                 },
             }
         });
@@ -203,7 +203,7 @@ $(function() {
 
     function getCurrencyData() {
 
-        fetch('https://min-api.cryptocompare.com/data/generateAvg?fsym=BTC&tsym=USD&markets=Coinbase,Bitfinex')
+        fetch('https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BTC,USD,EUR')
           .then(
             function(response) {
               if (response.status !== 200) {

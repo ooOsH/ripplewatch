@@ -1,2 +1,2 @@
 ## TODO
-[] Add dollar to graph prices
+- [ ] Add $ sign to prices on graph axis and tooltip

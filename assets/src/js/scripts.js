@@ -16,43 +16,6 @@ $(function() {
         return (neg ? "-$" : '$') + parseFloat(total, 10).toFixed(decimal).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString();
     }
 
-    // Hook in the coincapmarket api
-    var ripple_price;
-
-    function getData() {
-        $.getJSON('https://api.coinmarketcap.com/v1/ticker/ripple/', function(json){
-            ripple_price = json;
-            console.log(ripple_price);
-
-            var price = formatCurrency(ripple_price[0].price_usd, 4);
-            var marketcap  = formatCurrency(ripple_price[0].market_cap_usd, 1);
-            var dailychange = ripple_price[0].percent_change_24h + '%';
-
-            if (parseInt(dailychange) < 0) {
-                $('#24hr').css('color', 'red');
-            } else {
-                $('#24hr').css('color', 'green');
-            }
-
-            $('#price').text(price);
-            $('#pos').text('#' + ripple_price[0].rank);
-            $('#marketcap').text(marketcap);
-            $('#1hr').text(ripple_price[0].percent_change_1h + '%');
-            $('#24hr').text(dailychange);
-            $('#7days').text(ripple_price[0].percent_change_7d + '%');
-        });
-    }
-
-    // Initial Load
-    getData();
-
-    // Refresh Price every 15 sec
-    setInterval(function() {
-        getData();
-    }, 120000)
-
-
-
     // get all data for graph
     var all_coin_data;
     var last_hour;
@@ -226,20 +189,17 @@ $(function() {
         getCoinListData(coinName);
         getCoinPriceData(coinName);
         getGenAvgData(coinName);
+        getCoinSnapShot(coin_id);
 
-        if (parseInt(dailychange) < 0) {
+        if (parseInt(percent_change_24h) < 0) {
             $('#24hr').css('color', 'red');
         } else {
             $('#24hr').css('color', 'green');
         }
 
-        $('#price').text(price);
-        $('#pos').text('#' + ripple_price[0].rank);
-        $('#marketcap').text(marketcap);
-        $('#1hr').text(ripple_price[0].percent_change_1h + '%');
+        $('#price').text(coin_price_dol);
+        $('#marketcap').text(market_cap);
         $('#24hr').text(dailychange);
-        $('#7days').text(ripple_price[0].percent_change_7d + '%');
-        // outputCoinData(price, percent_change, rank, coin_symbol, coin_full_name);
     
     }
 
@@ -325,8 +285,8 @@ $(function() {
              });
     }
 
-    function getCoinSnapShot(coinName) {
-        fetch('https://www.cryptocompare.com/api/data/coinsnapshotfullbyid/?id=' + coin_id)
+    function getCoinSnapShot(coinID) {
+        fetch('https://www.cryptocompare.com/api/data/coinsnapshotfullbyid/?id=' + coinID)
              .then(
                function(response) {
                  if (response.status !== 200) {
@@ -342,7 +302,7 @@ $(function() {
                     coin_image_url = data.General.ImageUrl;
                     coin_full_img_url = "https://www.cryptocompare.com" + coin_base_url + coin_image_url;
                     total_coin_supply = data.General.TotalCoinSupply;
-
+                    market_cap = total_coin_supply * coin_price_dol;
 
                  });
                }

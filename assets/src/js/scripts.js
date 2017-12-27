@@ -134,12 +134,10 @@ $(function() {
         var ctx = $('#rippleChart');
         var myChart = new Chart(ctx, {
             type: 'line',
-            responsive: true,
             data: {
                 labels: labels_data,
                 datasets: [{
-                    label: 'Price of XRP',
-                    // x time / y price
+                    label: 'XRP',
                     data: graph_data,
                     backgroundColor: [
                         'rgba(45, 159, 227, 0.2)',
@@ -151,10 +149,14 @@ $(function() {
                 }]
             },
             options: {
+                responsive: true,
                 scales: {
                     yAxes: [{
                         ticks: {
                             beginAtZero: false
+                        },
+                        gridLines: {
+                            display: false
                         }
                     }],
                     xAxes: [{
@@ -165,8 +167,13 @@ $(function() {
                     display: false
                 },
                 tooltips: {
-                    enabled: true
+                    // enabled: false
                 },
+                elements: {
+                    point: {
+                        // radius: 0
+                    }
+                }
             }
         });
     }
@@ -198,34 +205,157 @@ $(function() {
    // generateGraphDataHour();
     generateGraphDataDay();
 
-    // crypto
-    var currency_data;
+    // cryptocurrecy api functions
+    var coin_id;
+    var coin_price_dol;
+    var coin_price_euro;
+    var coin_price_btc;
+    var percent_change_24h;
+    var rank;
+    var coin_symbol;
+    var coin_full_name;
+    var market_cap;
+    var coin_base_url;
+    var coin_image_url;
+    var coin_full_img_url;
+    var total_coin_supply;
 
-    function getCurrencyData() {
 
-        fetch('https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BTC,USD,EUR')
-          .then(
-            function(response) {
-              if (response.status !== 200) {
-                console.log('Looks like there was a problem. Status Code: ' +
-                  response.status);
-                return;
-              }
+    function genCoinData(coinName) {
 
-              // Examine the text in the response
-              response.json().then(function(data) {
-                console.log(data);
-                var current_price = data.USD;
-                console.log(current_price);
-              });
-            }
-          )
-          .catch(function(err) {
-            console.log('Fetch Error :-S', err);
-          });
+        getCoinListData(coinName);
+        getCoinPriceData(coinName);
+        getGenAvgData(coinName);
+
+        if (parseInt(dailychange) < 0) {
+            $('#24hr').css('color', 'red');
+        } else {
+            $('#24hr').css('color', 'green');
+        }
+
+        $('#price').text(price);
+        $('#pos').text('#' + ripple_price[0].rank);
+        $('#marketcap').text(marketcap);
+        $('#1hr').text(ripple_price[0].percent_change_1h + '%');
+        $('#24hr').text(dailychange);
+        $('#7days').text(ripple_price[0].percent_change_7d + '%');
+        // outputCoinData(price, percent_change, rank, coin_symbol, coin_full_name);
+    
+    }
+
+    function getCoinListData(coinName) {
+
+        fetch('https://min-api.cryptocompare.com/data/all/coinlist')
+             .then(
+               function(response) {
+                 if (response.status !== 200) {
+                   console.log('Looks like there was a problem. Status Code: ' +
+                     response.status);
+                   return;
+                 }
+
+                 // Examine the text in the response
+                 response.json().then(function(data) {
+
+                    $.each( data, function(k,v) {
+
+                        if (data.Data[coinName]) {
+                            coin_full_name = data.Data[coinName].FullName;
+                            coin_symbol = data.Data[coinName].Name;
+
+                        }
+
+                    });
+                   
+                 });
+               }
+             )
+             .catch(function(err) {
+               console.log('Fetch Error :-S', err);
+             });
 
     }
 
-    getCurrencyData();
+    function getCoinPriceData(coinName){
+        fetch('https://min-api.cryptocompare.com/data/price?fsym='+ coinName + '&tsyms=BTC,USD,EUR')
+             .then(
+               function(response) {
+                 if (response.status !== 200) {
+                   console.log('Looks like there was a problem. Status Code: ' +
+                     response.status);
+                   return;
+                 }
+
+                 // Examine the text in the response
+                 response.json().then(function(data) {
+
+                    coin_price_btc = data.BTC;
+                    coin_price_euro = data.EUR;
+                    coin_price_dol = data.USD;
+
+                   
+                 });
+               }
+             )
+             .catch(function(err) {
+               console.log('Fetch Error :-S', err);
+             });
+    }
+
+    function getGenAvgData(coinName){
+        fetch('https://min-api.cryptocompare.com/data/generateAvg?fsym=' + coinName + 'BTC&tsym=USD&e=Coinbase,Kraken,Bitstamp,Bitfinex')
+             .then(
+               function(response) {
+                 if (response.status !== 200) {
+                   console.log('Looks like there was a problem. Status Code: ' +
+                     response.status);
+                   return;
+                 }
+
+                 // Examine the text in the response
+                 response.json().then(function(data) {
+
+                   percent_change_24h = data.DISPLAY.CHANGEPCT24HOUR;
+                   
+                 });
+               }
+             )
+             .catch(function(err) {
+               console.log('Fetch Error :-S', err);
+             });
+    }
+
+    function getCoinSnapShot(coinName) {
+        fetch('https://www.cryptocompare.com/api/data/coinsnapshotfullbyid/?id=' + coin_id)
+             .then(
+               function(response) {
+                 if (response.status !== 200) {
+                   console.log('Looks like there was a problem. Status Code: ' +
+                     response.status);
+                   return;
+                 }
+
+                 // Examine the text in the response
+                 response.json().then(function(data) {
+
+                    coin_base_url = data.General.BaseUrl;
+                    coin_image_url = data.General.ImageUrl;
+                    coin_full_img_url = "https://www.cryptocompare.com" + coin_base_url + coin_image_url;
+                    total_coin_supply = data.General.TotalCoinSupply;
+
+
+                 });
+               }
+             )
+             .catch(function(err) {
+               console.log('Fetch Error :-S', err);
+             });
+    }
+
+    genCoinData("XRP");
+
+    setInterval(function() {
+        genCoinData("XRP");
+    }, 10000)
 
 });

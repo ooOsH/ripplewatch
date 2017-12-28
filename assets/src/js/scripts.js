@@ -16,6 +16,43 @@ $(function() {
         return (neg ? "-$" : '$') + parseFloat(total, 10).toFixed(decimal).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString();
     }
 
+    // // Hook in the coincapmarket api
+    // var ripple_price;
+
+    // function getData() {
+    //     $.getJSON('https://api.coinmarketcap.com/v1/ticker/ripple/', function(json){
+    //         ripple_price = json;
+    //         console.log(ripple_price);
+
+    //         var price = formatCurrency(ripple_price[0].price_usd, 4);
+    //         var marketcap  = formatCurrency(ripple_price[0].market_cap_usd, 1);
+    //         var dailychange = ripple_price[0].percent_change_24h + '%';
+
+    //         if (parseInt(dailychange) < 0) {
+    //             $('#24hr').css('color', 'red');
+    //         } else {
+    //             $('#24hr').css('color', 'green');
+    //         }
+
+    //         $('#price').text(price);
+    //         $('#pos').text('#' + ripple_price[0].rank);
+    //         $('#marketcap').text(marketcap);
+    //         $('#1hr').text(ripple_price[0].percent_change_1h + '%');
+    //         $('#24hr').text(dailychange);
+    //         $('#7days').text(ripple_price[0].percent_change_7d + '%');
+    //     });
+    // }
+
+    // // Initial Load
+    // getData();
+
+    // // Refresh Price every 15 sec
+    // setInterval(function() {
+    //     getData();
+    // }, 120000)
+
+
+
     // get all data for graph
     var all_coin_data;
     var last_hour;
@@ -191,6 +228,15 @@ $(function() {
         getGenAvgData(coinName);
         getCoinSnapShot(coin_id);
 
+        console.log("coinid - " + coin_id);
+        console.log("coin_price_dol - " + coin_price_dol);
+        console.log("percent_change_24h - " + percent_change_24h);
+        console.log("coin_symbol - " + coin_symbol);
+        console.log("coin_full_name - " + coin_full_name);
+        console.log("total_coin_supply - " + total_coin_supply);
+        console.log("market_cap - " + market_cap);
+        console.log("coin_full_img_url - " + coin_full_img_url);
+
         if (parseInt(percent_change_24h) < 0) {
             $('#24hr').css('color', 'red');
         } else {
@@ -218,10 +264,11 @@ $(function() {
                  response.json().then(function(data) {
 
                     $.each( data, function(k,v) {
-
+                            console.log(data.Data.[coinName]);
                         if (data.Data[coinName]) {
                             coin_full_name = data.Data[coinName].FullName;
                             coin_symbol = data.Data[coinName].Name;
+                            console.log(coin_full_name);
 
                         }
 

@@ -206,19 +206,19 @@ $(function() {
     generateGraphDataDay();
 
     // cryptocurrecy api functions
-    var coin_id;
-    var coin_price_dol;
-    var coin_price_euro;
-    var coin_price_btc;
-    var percent_change_24h;
-    var rank;
-    var coin_symbol;
-    var coin_full_name;
-    var market_cap;
-    var coin_base_url;
-    var coin_image_url;
-    var coin_full_img_url;
-    var total_coin_supply;
+    var coin_id = "";
+    var coin_price_dol = "";
+    var coin_price_euro = "";
+    var coin_price_btc = "";
+    var percent_change_24h = "";
+    var rank = "";
+    var coin_symbol = "";
+    var coin_full_name = "";
+    var market_cap = "";
+    var coin_base_url = "";
+    var coin_image_url = "";
+    var coin_full_img_url = "";
+    var total_coin_supply = "";
 
 
     function genCoinData(coinName) {
@@ -243,9 +243,9 @@ $(function() {
             $('#24hr').css('color', 'green');
         }
 
-        $('#price').text(coin_price_dol);
-        $('#marketcap').text(market_cap);
-        $('#24hr').text(dailychange);
+        $('#price').text("$" + coin_price_dol);
+        $('#marketcap').text("$" + market_cap);
+        $('#24hr').text(percent_change_24h + "%");
     
     }
 
@@ -262,18 +262,11 @@ $(function() {
 
                  // Examine the text in the response
                  response.json().then(function(data) {
+                  
+                    coin_full_name = data.Data[coinName].FullName;
+                    coin_symbol = data.Data[coinName].Name;
+                    coin_id = data.Data[coinName].Id;
 
-                    $.each( data, function(k,v) {
-                            console.log(data.Data.[coinName]);
-                        if (data.Data[coinName]) {
-                            coin_full_name = data.Data[coinName].FullName;
-                            coin_symbol = data.Data[coinName].Name;
-                            console.log(coin_full_name);
-
-                        }
-
-                    });
-                   
                  });
                }
              )
@@ -310,7 +303,7 @@ $(function() {
     }
 
     function getGenAvgData(coinName){
-        fetch('https://min-api.cryptocompare.com/data/generateAvg?fsym=' + coinName + 'BTC&tsym=USD&e=Coinbase,Kraken,Bitstamp,Bitfinex')
+        fetch('https://min-api.cryptocompare.com/data/generateAvg?fsym=' + coinName + '&tsym=USD&e=Bitfinex')
              .then(
                function(response) {
                  if (response.status !== 200) {
@@ -321,8 +314,13 @@ $(function() {
 
                  // Examine the text in the response
                  response.json().then(function(data) {
+                    
 
-                   percent_change_24h = data.DISPLAY.CHANGEPCT24HOUR;
+                    $.each( data, function(k,v) {
+
+                        percent_change_24h = v.CHANGEPCT24HOUR;
+
+                    });
                    
                  });
                }
@@ -333,7 +331,8 @@ $(function() {
     }
 
     function getCoinSnapShot(coinID) {
-        fetch('https://www.cryptocompare.com/api/data/coinsnapshotfullbyid/?id=' + coinID)
+        console.log("coin id = " + coinID);
+        fetch('https://www.cryptocompare.com/api/data/coinsnapshotfullbyid/?id=1182')
              .then(
                function(response) {
                  if (response.status !== 200) {
@@ -359,7 +358,10 @@ $(function() {
              });
     }
 
+
     genCoinData("XRP");
+
+    // genCoinData("XRP");
 
     setInterval(function() {
         genCoinData("XRP");

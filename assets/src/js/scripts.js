@@ -227,6 +227,7 @@ $(function() {
         getCoinPriceData(coinName);
         getGenAvgData(coinName);
         getCoinSnapShot(coin_id);
+        getRank();
 
         console.log("coinid - " + coin_id);
         console.log("coin_price_dol - " + coin_price_dol);
@@ -249,6 +250,7 @@ $(function() {
     
     }
 
+
     function getCoinListData(coinName) {
 
         fetch('https://min-api.cryptocompare.com/data/all/coinlist')
@@ -266,7 +268,7 @@ $(function() {
                     coin_full_name = data.Data[coinName].FullName;
                     coin_symbol = data.Data[coinName].Name;
                     coin_id = data.Data[coinName].Id;
-
+                    console.log("coin name " + coin_full_name);
                  });
                }
              )
@@ -358,13 +360,28 @@ $(function() {
              });
     }
 
+    function getRank() {
+        $.getJSON('https://api.coinmarketcap.com/v1/ticker/ripple/', function(json){
+            var ripple_price = json;
+            // console.log(ripple_price);
 
-    genCoinData("XRP");
+            $('#pos').text('#' + ripple_price[0].rank);
+           
+        });
+    }
 
-    // genCoinData("XRP");
+    setInterval(function() {
+        if (coin_price_dol == "") {
+            genCoinData("XRP");
+        } else {
+            
+        }
+    }, 100)
+    
+
 
     setInterval(function() {
         genCoinData("XRP");
-    }, 10000)
+    }, 10500)
 
 });

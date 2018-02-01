@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ooOsH/ripplewatch#readme",
   "devDependencies": {
+    "amcharts3": "github:amcharts/amcharts3",
     "chart.js": "^2.7.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",

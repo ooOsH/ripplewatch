@@ -139,6 +139,7 @@ $(function() {
                 datasets: [{
                     label: 'XRP',
                     data: graph_data,
+                    steppedLine: true,
                     backgroundColor: [
                         'rgba(45, 159, 227, 0.2)',
                     ],
@@ -156,11 +157,14 @@ $(function() {
                             beginAtZero: false
                         },
                         gridLines: {
-                            display: false
+                            display: true
                         }
                     }],
                     xAxes: [{
-                        display: false
+                        // display: false
+                        gridLines: {
+                            display: false
+                        }
                     }]
                 },
                 legend: {
@@ -171,7 +175,7 @@ $(function() {
                 },
                 elements: {
                     point: {
-                        // radius: 0
+                        radius: 0
                     }
                 }
             }

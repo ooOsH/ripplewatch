@@ -161,17 +161,18 @@ $(function() {
                         }
                     }],
                     xAxes: [{
-                        // display: false
-                        gridLines: {
-                            display: false
-                        }
+                        display: false
+                        // gridLines: {
+                        //     display: false
+                        // }
                     }]
                 },
                 legend: {
                     display: false
                 },
                 tooltips: {
-                    // enabled: false
+                    enabled: false,
+                    cornerRadius: 0
                 },
                 elements: {
                     point: {
